@@ -1,0 +1,133 @@
+# Shared EU SAF market, policy, company and GHG inputs for every SAF configuration.
+# Euro figures converted at finance.eur_usd (1.15). "Assumption" = judgment, not sourced.
+
+[market.jet_price]
+base = 735
+low = 600
+high = 950
+unit = "$/t fossil jet"
+source = "EASA 2025 reference price for fossil kerosene, EUR 640/t"
+
+[market.saf_premium_2025]
+base = 1478
+low = 1100
+high = 1800
+unit = "$/t SAF premium over fossil jet in 2025"
+source = "EASA 2025 reference prices: aviation biofuels EUR 1,925/t vs fossil EUR 640/t"
+
+[market.premium_decline]
+base = 0.04
+low = 0.0
+high = 0.10
+unit = "fraction/yr"
+source = "Assumption: supply catches up with the mandate, so the premium shrinks; mandate rises to 20% in 2035"
+
+[market.premium_floor]
+base = 700
+low = 300
+high = 1100
+unit = "$/t long-run SAF premium over fossil jet"
+source = "Assumption: set by the marginal pathway needed for the 20-70% mandate (FT, alcohol-to-jet, e-SAF), not by HEFA"
+
+[market.years_2025_to_year1]
+base = 2
+unit = "yr (model year 1 = 2027)"
+source = "Assumption"
+
+[market.hefa_price]
+base = 2214
+low = 1900
+high = 2600
+unit = "$/t HEFA SAF (incumbent SAF)"
+source = "EASA 2025 aviation biofuel reference price EUR 1,925/t; Fastmarkets SAF base cost $1,902-2,430/t in 2026"
+
+[market.coproduct_factor]
+base = 1.2
+low = 1.0
+high = 1.5
+unit = "x fossil jet price"
+source = "Assumption: renewable naphtha/diesel sell at a premium to fossil"
+
+[market.penalty_multiple]
+base = 2.0
+unit = "x SAF-jet price gap"
+source = "ReFuelEU: penalty at least twice the price difference on the volume missed"
+
+[market.eu_jet_demand]
+base = 46_000_000
+unit = "t/yr EU jet fuel"
+source = "Assumption (approximate EU aviation fuel demand, held flat)"
+
+[market.mandate_2035]
+base = 0.20
+unit = "SAF share of EU jet fuel"
+source = "ReFuelEU Aviation: 2% 2025, 6% 2030, 20% 2035, 34% 2040, 70% 2050"
+
+[policy.rcf_credit]
+base = 0.5
+low = 0.0
+high = 1.0
+unit = "share of SAF premium earned by fuel from fossil carbon"
+source = "Assumption. Fuel from the fossil (plastic) fraction may count as recycled carbon aviation fuel; treatment unverified."
+
+[ghg.fossil_jet]
+base = 4.06
+unit = "t CO2e per t fossil jet, life cycle"
+source = "RED fossil comparator 94 g CO2e/MJ x 43.2 MJ/kg (from memory, unverified)"
+
+[ghg.saving_hefa]
+base = 0.80
+unit = "life-cycle saving of used-cooking-oil HEFA vs fossil"
+source = "Assumption"
+
+[company.rd_years]
+base = 2
+low = 1
+high = 3
+unit = "yr before first plant"
+source = "Assumption"
+
+[company.rd_opex]
+base = 20_000_000
+low = 10_000_000
+high = 40_000_000
+unit = "$/yr during R&D"
+source = "Assumption: pilot plant and engineering"
+
+[company.corporate_opex]
+base = 10_000_000
+low = 5_000_000
+high = 20_000_000
+unit = "$/yr once selling"
+source = "Assumption"
+
+[company.ga_share]
+base = 0.02
+low = 0.01
+high = 0.04
+unit = "fraction of revenue"
+source = "Assumption"
+
+[learning.first_year_experience]
+base = 1
+unit = "plants (experience of the first plant)"
+source = "Convention"
+
+[learning.noak_experience]
+base = 8
+low = 4
+high = 15
+unit = "plants built to reach NOAK capex"
+source = "Assumption"
+
+[learning.rate_capex]
+base = 0.12
+low = 0.05
+high = 0.20
+unit = "capex reduction per doubling of plants"
+source = "Assumption, in line with chemical process plants"
+
+[plant.schedule]
+base = [1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+unit = "cumulative plants started by commercial year"
+source = "Assumption"

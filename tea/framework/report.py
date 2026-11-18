@@ -74,7 +74,8 @@ def _write_csv(path: Path, rows: list[dict]) -> None:
     if not rows:
         return
     with open(path, "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0]))
+        fields = list(dict.fromkeys(k for r in rows for k in r))  # union of keys, first-seen order
+        w = csv.DictWriter(f, fieldnames=fields, restval=0)
         w.writeheader()
         w.writerows(rows)
 
