@@ -1,0 +1,172 @@
+# Trash refinery: sorted residual MSW -> gasification + Fischer-Tropsch SAF.
+# All per-plant inputs are NOAK. "Assumption" = judgment, not sourced.
+
+[meta]
+project = "Trash refinery: sorted MSW to gasification + Fischer-Tropsch SAF"
+include = ["saf_market.toml"]
+boundary = "Residual MSW at the gate to SAF, co-products and recyclables at the plant gate. Excludes collection."
+functional_units = "Levelized SAF supply cost ($/t fuel); cost of CO2e avoided ($/t)."
+
+[plant.feed_t]
+base = 500_000
+unit = "t/yr residual MSW"
+source = "Assumption. Fulcrum Sierra processed 350,000 t/yr; Fulcrum's planned UK NorthPoint plant ~600,000 t/yr into ~100M L/yr SAF."
+
+[plant.life]
+base = 25
+unit = "yr"
+source = "Assumption"
+
+[plant.mature_age]
+base = 2
+unit = "plant age used for steady-state figures"
+source = "Convention"
+
+[plant.first_year_factor]
+base = 0.5
+unit = "share of steady output in the build/commissioning year"
+source = "Assumption"
+
+[sort.enabled]
+base = 1
+unit = "1 = Materra-style molecular sorting"
+source = "Base case"
+
+[sort.recyclables_share]
+base = 0.12
+low = 0.08
+high = 0.18
+unit = "share of feed sold as recyclables"
+source = "Assumption. Residual MSW is ~10% plastics and ~4% metals (MDPI 2026)."
+
+[sort.recyclables_value]
+base = 120
+low = 40
+high = 250
+unit = "$/t net"
+source = "Assumption"
+
+[sort.organics_share]
+base = 0.30
+low = 0.20
+high = 0.40
+unit = "share of feed diverted as wet organics"
+source = "Assumption. Residual MSW is ~46% unstable organic matter including paper-like residues (MDPI 2026)."
+
+[sort.organics_fee]
+base = 20
+low = 0
+high = 80
+unit = "$/t paid to send organics to digestion"
+source = "WRAP 2025/26: UK median AD gate fee for food waste GBP 13/t; IVC GBP 66/t"
+
+[sort.cost]
+base = 30
+low = 15
+high = 60
+unit = "$/t feed for molecular sorting"
+source = "Assumption. EASA uses ~EUR 80/t as an MRF operating-cost basis for MSW feedstock."
+
+[waste.gate_fee]
+base = 70
+low = 30
+high = 150
+unit = "$/t residual waste received"
+source = "EASA: EU average tipping fee ~EUR 59/t; landfill taxes EUR 11-154/t across Europe (RDFIG 2026)"
+
+[ft.prep_cost]
+base = 10
+low = 5
+high = 20
+unit = "$/t feed for shredding and drying"
+source = "Assumption"
+
+[ft.residue_moisture]
+base = 0.20
+low = 0.10
+high = 0.30
+unit = "fraction"
+source = "Assumption"
+
+[ft.fuel_yield]
+base = 0.20
+low = 0.15
+high = 0.25
+unit = "t liquid fuel per dry t gasifier feed"
+source = "EASA reference-price model: biomass FT 20% fuel conversion"
+
+[ft.saf_selectivity]
+base = 0.70
+low = 0.60
+high = 0.80
+unit = "SAF share of FT liquids"
+source = "EASA reference-price model: FT 70% SAF selectivity"
+
+[ft.biogenic_share]
+base = 0.65
+low = 0.50
+high = 0.80
+unit = "biogenic carbon share of gasifier residue"
+source = "Assumption: removing plastics to recycling raises the biogenic share"
+
+[ft.availability]
+base = 0.85
+low = 0.60
+high = 0.92
+unit = "on-stream fraction with sorted feed"
+source = "Assumption (the hypothesis to test)"
+
+[ft.availability_unsorted]
+base = 0.55
+low = 0.35
+high = 0.75
+unit = "on-stream fraction with unsorted feed"
+source = "Assumption. Fulcrum Sierra never reached capacity (clogging, corrosion, sludge)."
+
+[ft.capex_per_dry_t]
+base = 1400
+low = 900
+high = 2200
+unit = "$ per t/yr dry gasifier feed, NOAK, incl. sorting front end"
+source = "Assumption: ~$7,000 per t/yr liquids at 20% yield. Fulcrum Sierra FOAK: ~$300M for ~11M gal/yr syncrude (~$9,000 per t/yr) before upgrading."
+
+[ft.fixed_share]
+base = 0.064
+unit = "fixed opex as fraction of capex per yr"
+source = "EASA reference-price model: gasification FT fixed costs 6.4% of capex"
+
+[ft.var_opex]
+base = 70
+low = 50
+high = 110
+unit = "$/t dry gasifier feed (oxygen, catalyst, utilities)"
+source = "Assumption, scaled to EASA cost shares (oxygen ~17% of MSW-FT cost)"
+
+[ghg.saving]
+base = 0.80
+low = 0.65
+high = 0.90
+unit = "life-cycle saving vs fossil jet"
+source = "Assumption"
+
+[score.impact]
+base = 4
+source = "Judgment"
+[score.breakthrough]
+base = 4
+source = "Judgment"
+[score.feasibility]
+base = 3
+source = "Judgment"
+[score.scalability]
+base = 3
+source = "Judgment"
+[score.demand]
+base = 5
+source = "Judgment: penalty-backed EU mandate"
+[score.white_space]
+base = 3
+source = "Judgment"
+[score.validation]
+base = 3
+source = "Judgment"

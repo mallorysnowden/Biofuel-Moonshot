@@ -1,0 +1,124 @@
+# Sorted wet organics -> hydrothermal liquefaction -> upgraded SAF. Per-plant inputs at NOAK.
+
+[meta]
+project = "Sorted wet organics to hydrothermal liquefaction SAF"
+include = ["saf_market.toml"]
+boundary = "Wet organic waste at the gate to SAF and co-products at the plant gate. Excludes collection."
+functional_units = "Levelized SAF supply cost ($/t fuel); cost of CO2e avoided ($/t)."
+
+[plant.feed_t]
+base = 300_000
+unit = "t/yr wet organics"
+source = "Assumption: a 500,000 t/yr residual-waste sorting line yields ~150,000 t/yr organics; two lines per HTL plant"
+
+[plant.life]
+base = 25
+unit = "yr"
+source = "Assumption"
+
+[plant.mature_age]
+base = 2
+unit = "plant age used for steady-state figures"
+source = "Convention"
+
+[plant.first_year_factor]
+base = 0.5
+unit = "share of steady output in the build year"
+source = "Assumption"
+
+[sort.cost]
+base = 15
+low = 0
+high = 40
+unit = "$/t organics for sorting and depackaging"
+source = "Assumption"
+
+[waste.gate_fee]
+base = 20
+low = 0
+high = 70
+unit = "$/t organics received"
+source = "WRAP 2025/26: UK median AD gate fee for food waste GBP 13/t; IVC GBP 66/t"
+
+[htl.moisture]
+base = 0.75
+low = 0.70
+high = 0.82
+unit = "fraction"
+source = "Assumption: typical food waste"
+
+[htl.biocrude_yield]
+base = 0.40
+low = 0.25
+high = 0.50
+unit = "t biocrude per dry t"
+source = "Assumption. PNNL/QSD work targets >0.44 for sludge; Princeton pilot ran food waste at 90 kg/h."
+
+[htl.upgrade_yield]
+base = 0.80
+low = 0.70
+high = 0.88
+unit = "t fuel per t biocrude after hydrotreating"
+source = "Assumption"
+
+[htl.jet_share]
+base = 0.50
+low = 0.30
+high = 0.65
+unit = "SAF share of upgraded fuel"
+source = "Assumption: HTL fuels skew to the diesel range"
+
+[htl.availability]
+base = 0.85
+low = 0.65
+high = 0.92
+unit = "on-stream fraction"
+source = "Assumption"
+
+[htl.capex_per_wet_t]
+base = 640
+low = 400
+high = 1125
+unit = "$ per t/yr wet feed capacity, NOAK, incl. upgrading and water treatment (reactors size on slurry flow)"
+source = "Assumption: ~$8,000 per t/yr fuel at base yields. Princeton food-waste HTL: MFSP $25/GGE at 5 t/day falling to $10/GGE at 500 t/day."
+
+[htl.fixed_share]
+base = 0.06
+unit = "fixed opex as fraction of capex per yr"
+source = "Assumption, close to EASA's 5.9-6.4% for other pathways"
+
+[htl.var_opex]
+base = 400
+low = 250
+high = 650
+unit = "$/t fuel (hydrogen, catalyst, aqueous-phase treatment)"
+source = "Assumption"
+
+[ghg.saving]
+base = 0.75
+low = 0.60
+high = 0.90
+unit = "life-cycle saving vs fossil jet"
+source = "Assumption"
+
+[score.impact]
+base = 3
+source = "Judgment"
+[score.breakthrough]
+base = 3
+source = "Judgment"
+[score.feasibility]
+base = 3
+source = "Judgment"
+[score.scalability]
+base = 3
+source = "Judgment"
+[score.demand]
+base = 5
+source = "Judgment: penalty-backed EU mandate"
+[score.white_space]
+base = 3
+source = "Judgment"
+[score.validation]
+base = 3
+source = "Judgment"

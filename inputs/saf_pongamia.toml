@@ -1,0 +1,152 @@
+# Pongamia on severely degraded land -> oil -> HEFA SAF. Per-block inputs at NOAK.
+
+[meta]
+project = "Afforestation: pongamia on degraded land to HEFA SAF"
+include = ["saf_market.toml"]
+boundary = "Plantation establishment to SAF, co-products and press cake (meal) at the refinery gate."
+functional_units = "Levelized SAF supply cost ($/t fuel); cost of CO2e avoided ($/t)."
+
+[plant.life]
+base = 25
+unit = "yr"
+source = "Assumption: plantation and refinery life"
+
+[plant.mature_age]
+base = 8
+unit = "block age used for steady-state figures"
+source = "Convention"
+
+[crop.area_ha]
+base = 30_000
+unit = "ha per plantation block"
+source = "Assumption"
+
+[crop.feed_yield]
+base = 2.0
+low = 1.2
+high = 3.0
+unit = "t oil/ha-yr at maturity"
+source = "Canopy (Madagascar) plans ~1.8 t oil/ha at maturity; Terviva reports 3+ t beans/acre at 35-40% oil (company-reported)"
+
+[crop.first_yield_age]
+base = 3
+unit = "yr after planting"
+source = "Assumption"
+
+[crop.full_yield_age]
+base = 7
+low = 6
+high = 10
+unit = "yr after planting"
+source = "Assumption. Traditional pongamia flowers in year 7; improved cultivars earlier (company claims)."
+
+[crop.establish_cost]
+base = 3000
+low = 1500
+high = 5000
+unit = "$/ha"
+source = "Assumption"
+
+[crop.om_cost]
+base = 500
+low = 300
+high = 900
+unit = "$/ha-yr incl. harvest"
+source = "Assumption"
+
+[crop.land_cost]
+base = 100
+low = 0
+high = 250
+unit = "$/ha-yr lease on degraded land"
+source = "Assumption"
+
+[crop.process_cost]
+base = 100
+low = 60
+high = 160
+unit = "$/t oil for crushing"
+source = "Assumption: ~$30/t seed at ~30% oil"
+
+[crop.meal_yield]
+base = 3.5
+low = 2.0
+high = 4.5
+unit = "t press cake/ha-yr at maturity"
+source = "Canopy plan: ~35,000 t meal with ~15,000 t oil (S&P Global, Jan 2026)"
+
+[crop.meal_price]
+base = 200
+low = 100
+high = 300
+unit = "$/t press cake"
+source = "Assumption"
+
+[crop.carbon_credit]
+base = 0
+low = 0
+high = 150
+unit = "$/ha-yr"
+source = "Off in base. Canopy says carbon credits help finance the long plantation cycle."
+
+[conv.liquid_yield]
+base = 0.83
+low = 0.78
+high = 0.88
+unit = "t liquid fuel per t oil (HEFA)"
+source = "Assumption"
+
+[conv.jet_share]
+base = 0.60
+low = 0.45
+high = 0.70
+unit = "SAF share of HEFA liquids"
+source = "Assumption"
+
+[conv.capex_per_t]
+base = 2400
+low = 1500
+high = 4000
+unit = "$ per t/yr liquids capacity (HEFA)"
+source = "HEFA plant producing 58M L/yr costs ~$110M (Fueling the Future substack)"
+
+[conv.fixed_share]
+base = 0.05
+unit = "fixed opex as fraction of conversion capex per yr"
+source = "Assumption"
+
+[conv.var_opex]
+base = 250
+low = 150
+high = 400
+unit = "$/t liquids (hydrogen, utilities)"
+source = "Assumption"
+
+[ghg.saving]
+base = 0.70
+low = 0.50
+high = 0.90
+unit = "life-cycle saving vs fossil jet"
+source = "Assumption"
+
+[score.impact]
+base = 4
+source = "Judgment: land restoration plus fuel"
+[score.breakthrough]
+base = 2
+source = "Judgment: agronomy, not new technology"
+[score.feasibility]
+base = 3
+source = "Judgment"
+[score.scalability]
+base = 2
+source = "Judgment: land-limited"
+[score.demand]
+base = 5
+source = "Judgment: penalty-backed EU mandate"
+[score.white_space]
+base = 2
+source = "Judgment: Terviva, Canopy, Idemitsu active"
+[score.validation]
+base = 2
+source = "Judgment: trees take ~7 years to prove yield"
