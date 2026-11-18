@@ -16,14 +16,21 @@ base = 25
 unit = "yr"
 source = "Assumption"
 
-[plant.mature_age]
+[plant.build_years]
 base = 2
+low = 1
+high = 3
+unit = "yr of construction before start-up (capex spread evenly)"
+source = "Assumption (added in the consistency audit; plants previously ran in their build year)"
+
+[plant.mature_age]
+base = 3
 unit = "plant age used for steady-state figures"
 source = "Convention"
 
 [plant.first_year_factor]
 base = 0.5
-unit = "share of steady output in the build year"
+unit = "share of steady output in the first year after start-up"
 source = "Assumption"
 
 [sort.cost]

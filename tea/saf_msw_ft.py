@@ -30,10 +30,11 @@ def availability(v) -> float:
 
 def plant_year(v, age: int) -> dict:
     mb = mass_balance(v)
-    capex = mb["dry"] * v["ft.capex_per_dry_t"] if age == 0 else 0.0
-    a = availability(v) * (v["plant.first_year_factor"] if age == 0 else 1.0)
-    if age > v["plant.life"]:
-        a = 0.0
+    by = int(v["plant.build_years"])
+    capex = mb["dry"] * v["ft.capex_per_dry_t"] / by if age < by else 0.0
+    op = age - by  # years since start-up
+    running = 0 <= op < v["plant.life"]
+    a = availability(v) * (v["plant.first_year_factor"] if op == 0 else 1.0) if running else 0.0
     saf = mb["saf_range"] * a
     bio = v["ft.biogenic_share"]
     feed = mb["feed"] * a
@@ -46,7 +47,7 @@ def plant_year(v, age: int) -> dict:
         "opex": {"sorting": feed * v["sort.cost"] * v["sort.enabled"] + feed * v["ft.prep_cost"],
                  "organics_disposal": mb["organics"] * a * v["sort.organics_fee"],
                  "variable": mb["dry"] * a * v["ft.var_opex"],
-                 "fixed": mb["dry"] * v["ft.capex_per_dry_t"] * v["ft.fixed_share"] if age <= v["plant.life"] else 0.0},
+                 "fixed": mb["dry"] * v["ft.capex_per_dry_t"] * v["ft.fixed_share"] if running else 0.0},
         "capex": capex,
     }
 

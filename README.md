@@ -27,37 +27,50 @@ python -m pytest
 
 | Configuration | NPV | IRR | P(NPV>0) | NOAK MSP $/t | $/t CO2e | Kill metrics passed |
 |---|---|---|---|---|---|---|
-| Trash refinery (sorted MSW, gasification + FT) | -$612M | 5% | 11% | $1,552 | $251 | 4/5 |
-| Trash refinery, unsorted feed (Fulcrum-like) | -$2.38B | -4% | 1% | $2,709 | $608 | 0/5 |
-| Sorted wet organics, HTL | -$918M | n/a | 0% | $2,947 | $726 | 1/5 |
-| Pongamia on degraded land, HEFA | -$391M | 7% | 4% | $1,648 | $321 | 2/5 |
-| Agave on semi-arid land, alcohol-to-jet | -$1.59B | 1% | 3% | $2,136 | $493 | 2/5 |
+| Trash refinery (sorted MSW, gasification + FT) | -$787M | 4% | 7% | $1,756 | $314 | 2/5 |
+| Trash refinery, unsorted feed (Fulcrum-like) | -$2.38B | -4% | 0% | $3,025 | $705 | 0/5 |
+| Sorted wet organics, HTL | -$917M | -6% | 0% | $3,274 | $834 | 1/5 |
+| Pongamia on degraded land, HEFA | -$414M | 7% | 3% | $1,648 | $321 | 2/5 |
+| Agave on semi-arid land, alcohol-to-jet | -$1.62B | 1% | 2% | $2,136 | $493 | 2/5 |
 
 Benchmarks: HEFA SAF $2,214/t (EASA 2025), projected 2035 SAF price $1,718/t,
 long-run SAF price $1,435/t (fossil jet $735 + a $700 premium floor), fossil jet $735/t.
-MSP is the levelized SAF price at which one NOAK plant breaks even over its life at 10%.
+MSP is the levelized SAF price at which one NOAK plant breaks even over its life at 10%,
+including two years of construction before start-up.
 
 **What it says**
 
-1. **The trash refinery is the strongest configuration, and sorting is the reason.**
-   Sorting cuts the MSP from $2,709/t to $1,552/t, 30% below today's HEFA price.
+1. **The trash refinery is the strongest waste configuration, and sorting is the reason.**
+   Sorting cuts the MSP from $3,025/t to $1,756/t, 21% below today's HEFA price.
    That gap is the Fulcrum lesson quantified: a controlled gasifier diet lifts
    availability and lets recyclables and organics leave before the gasifier.
-2. **No configuration clears a 10% return at base.** The long-run SAF price
-   ($1,435/t) sits just below the best MSP. The decisive inputs are market and
-   siting, not chemistry:
-   - SAF premium floor: the trash refinery needs ~$1,440/t over jet (base $700).
-   - Gate fee: break-even at ~$103/t (EU average ~$70); at UK-level fees ($150/t) NPV is +$863M.
-   - Premium decline: it pays if the 2025 premium holds (NPV +$40M).
+2. **No configuration clears a 10% return at base.** The trash refinery's MSP sits
+   above both the projected 2035 price and the long-run price. The decisive inputs are
+   market and siting, not chemistry:
+   - Gate fee: break-even at ~$123/t (EU average ~$70); at UK-level fees ($150/t) NPV is +$408M.
+   - NOAK capex: break-even at ~$946 per t/yr of dry feed (base $1,400).
+   - Even if the 2025 premium held flat, NPV is −$228M.
 3. **HTL fails on scale and cost.** One plant makes only ~10 kt/yr SAF; HTL fuel skews to diesel.
-4. **Pongamia is close but land- and time-bound.** MSP $1,648/t; trees take 7 years to
-   full yield; needs ~3.6 t oil/ha (base 2.0) or ~$285/ha-yr carbon credits to break even.
-   Agave yields ~2.9x more SAF per hectare but alcohol-to-jet conversion costs more.
+4. **Pongamia has the lowest MSP but is land- and time-bound.** MSP $1,648/t; trees take
+   7 years to full yield; needs ~3.8 t oil/ha (base 2.0) or ~$305/ha-yr carbon credits to
+   break even. Agave yields ~2.9x more SAF per hectare but alcohol-to-jet conversion costs more.
+
+## Consistency audit (Nov 2026)
+
+Aligned with the thermosyphon and prefab-homes TEAs:
+
+- **Construction time (correction):** gasifier and HTL plants now spend two years in
+  construction before start-up. Previously they produced in their build year, which
+  understated MSP by ~$200/t.
+- **G&A:** raised from 2% to the shared 3% of revenue.
+- **Shared remaining-life rule:** after the horizon, built plants run out their life
+  with no new builds, counted only while cash stays positive.
 
 ## Caveats
 
 - Pre-tax, real 2026 USD. NPV counts the remaining life of plants built within the
-  15-year horizon (no new builds after); each report also shows the horizon-only NPV.
+  15-year horizon (no new builds after, only while cash stays positive); each report
+  also shows the horizon-only NPV.
 - Whether fuel from the fossil (plastic) fraction earns the SAF premium as "recycled
   carbon aviation fuel" is unverified; `policy.rcf_credit` = 0.5 in base, 0 and 1 as scenarios.
 - Capex, yields and the premium path are mostly assumptions with ranges; sources are in

@@ -22,9 +22,10 @@ def mass_balance(v) -> dict:
 
 def plant_year(v, age: int) -> dict:
     mb = mass_balance(v)
-    a = v["htl.availability"] * (v["plant.first_year_factor"] if age == 0 else 1.0)
-    if age > v["plant.life"]:
-        a = 0.0
+    by = int(v["plant.build_years"])
+    op = age - by  # years since start-up
+    running = 0 <= op < v["plant.life"]
+    a = v["htl.availability"] * (v["plant.first_year_factor"] if op == 0 else 1.0) if running else 0.0
     feed = mb["feed"] * a
     return {
         "saf": mb["saf_range"] * a,
@@ -33,8 +34,8 @@ def plant_year(v, age: int) -> dict:
         "revenue": {"gate_fees": feed * v["waste.gate_fee"]},
         "opex": {"sorting": feed * v["sort.cost"],
                  "variable": mb["fuel"] * a * v["htl.var_opex"],
-                 "fixed": mb["feed"] * v["htl.capex_per_wet_t"] * v["htl.fixed_share"] if age <= v["plant.life"] else 0.0},
-        "capex": mb["feed"] * v["htl.capex_per_wet_t"] if age == 0 else 0.0,
+                 "fixed": mb["feed"] * v["htl.capex_per_wet_t"] * v["htl.fixed_share"] if running else 0.0},
+        "capex": mb["feed"] * v["htl.capex_per_wet_t"] / by if age < by else 0.0,
     }
 
 

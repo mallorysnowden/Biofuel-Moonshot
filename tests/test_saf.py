@@ -117,3 +117,12 @@ def test_agave_yields_more_saf_per_ha():
 
 def test_crf_consistency():
     assert crf(0.10, 25) == pytest.approx(0.10 / (1 - 1.10 ** -25))
+
+
+def test_construction_years_before_output(msw):
+    total = saf_msw_ft.mass_balance(msw)["dry"] * msw["ft.capex_per_dry_t"]
+    y0, y1, y2 = (saf_msw_ft.plant_year(msw, a) for a in (0, 1, 2))
+    assert y0["capex"] == pytest.approx(total / 2) and y1["capex"] == pytest.approx(total / 2)
+    assert y0["saf"] == y1["saf"] == 0 and sum(y0["opex"].values()) == 0
+    assert y2["capex"] == 0 and y2["saf"] > 0
+    assert saf_msw_ft.plant_year(msw, 3)["saf"] == pytest.approx(y2["saf"] / msw["plant.first_year_factor"])

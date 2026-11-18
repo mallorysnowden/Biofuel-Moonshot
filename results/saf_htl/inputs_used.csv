@@ -30,15 +30,16 @@ ghg.saving_hefa,0.8,,,life-cycle saving of used-cooking-oil HEFA vs fossil,Assum
 company.rd_years,2,1,3,yr before first plant,Assumption
 company.rd_opex,20000000,10000000,40000000,$/yr during R&D,Assumption: pilot plant and engineering
 company.corporate_opex,10000000,5000000,20000000,$/yr once selling,Assumption
-company.ga_share,0.02,0.01,0.04,fraction of revenue,Assumption
+company.ga_share,0.03,0.02,0.05,fraction of revenue,Assumption: same 3% G&A share used in the prefab and thermosyphon TEAs
 learning.first_year_experience,1,,,plants (experience of the first plant),Convention
 learning.noak_experience,8,4,15,plants built to reach NOAK capex,Assumption
 learning.rate_capex,0.12,0.05,0.2,capex reduction per doubling of plants,"Assumption, in line with chemical process plants"
 plant.schedule,"[1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]",,,cumulative plants started by commercial year,Assumption
 plant.feed_t,300000,,,t/yr wet organics,"Assumption: a 500,000 t/yr residual-waste sorting line yields ~150,000 t/yr organics; two lines per HTL plant"
 plant.life,25,,,yr,Assumption
-plant.mature_age,2,,,plant age used for steady-state figures,Convention
-plant.first_year_factor,0.5,,,share of steady output in the build year,Assumption
+plant.build_years,2,1,3,yr of construction before start-up (capex spread evenly),Assumption (added in the consistency audit; plants previously ran in their build year)
+plant.mature_age,3,,,plant age used for steady-state figures,Convention
+plant.first_year_factor,0.5,,,share of steady output in the first year after start-up,Assumption
 sort.cost,15,0,40,$/t organics for sorting and depackaging,Assumption
 waste.gate_fee,20,0,70,$/t organics received,WRAP 2025/26: UK median AD gate fee for food waste GBP 13/t; IVC GBP 66/t
 htl.moisture,0.75,0.7,0.82,fraction,Assumption: typical food waste

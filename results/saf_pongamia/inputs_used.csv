@@ -30,7 +30,7 @@ ghg.saving_hefa,0.8,,,life-cycle saving of used-cooking-oil HEFA vs fossil,Assum
 company.rd_years,2,1,3,yr before first plant,Assumption
 company.rd_opex,20000000,10000000,40000000,$/yr during R&D,Assumption: pilot plant and engineering
 company.corporate_opex,10000000,5000000,20000000,$/yr once selling,Assumption
-company.ga_share,0.02,0.01,0.04,fraction of revenue,Assumption
+company.ga_share,0.03,0.02,0.05,fraction of revenue,Assumption: same 3% G&A share used in the prefab and thermosyphon TEAs
 learning.first_year_experience,1,,,plants (experience of the first plant),Convention
 learning.noak_experience,8,4,15,plants built to reach NOAK capex,Assumption
 learning.rate_capex,0.12,0.05,0.2,capex reduction per doubling of plants,"Assumption, in line with chemical process plants"

@@ -72,7 +72,7 @@ def msp(v, plant_year: PlantYear, capex_mult: float = 1.0) -> float:
     meal, credits) is credited as earned.
     """
     r = v["finance.company_discount_rate"]
-    life = int(v["plant.life"])
+    life = int(v["plant.life"]) + int(v.get("plant.build_years", 0))
     cost_pv = fuel_pv = 0.0
     for age in range(life + 1):
         f = plant_year(v, age)
@@ -140,15 +140,16 @@ def run(v, plant_year: PlantYear, project: str, extra_kills: list[KillMetric] | 
     # Plants keep running after the horizon; count their remaining operating cash (no new builds).
     tail = []
     if v.get("plant.count_remaining_life", 1):
-        for t in range(horizon + 1, horizon + int(v["plant.life"]) + 1):
+        for t in range(horizon + 1, horizon + int(v["plant.life"]) + int(v.get("plant.build_years", 0)) + 1):
             rev_t = op_t = 0.0
             for built, mult in plants:
                 rev, op, _ = plant_cash(v, plant_year(v, t - built), t, mult)
                 rev_t += sum(rev.values())
                 op_t += op
-            if rev_t <= 0:
+            c = rev_t - op_t - v["company.corporate_opex"] - rev_t * v["company.ga_share"]
+            if c <= 0:  # same rule in all three finalist TEAs: stop when cash turns negative
                 break
-            tail.append(rev_t - op_t - v["company.corporate_opex"] - rev_t * v["company.ga_share"])
+            tail.append(c)
     npv_horizon = npv(rate, cash)
     went_negative, breakeven_year = False, None
     for r in rows:
@@ -202,7 +203,8 @@ def run(v, plant_year: PlantYear, project: str, extra_kills: list[KillMetric] | 
         f"SAF price path: premium over jet ${saf_premium(v, 1):,.0f}/t in model year 1 (2027), "
         f"${saf_premium(v, year_of(v, 2035)):,.0f}/t in 2035, ${saf_premium(v, horizon):,.0f}/t in year {horizon}.",
         f"NPV and IRR include the remaining-life operating cash of plants built within the {horizon}-yr horizon "
-        f"(no new builds after it). NPV over the horizon alone: ${npv_horizon / 1e6:,.0f}M.",
+        f"(no new builds after it) while it stays positive; {len(tail)} tail years counted. "
+        f"NPV over the horizon alone: ${npv_horizon / 1e6:,.0f}M.",
         "Pre-tax, real 2026 USD; operating profit is before depreciation.",
     ]
     return StandardResult(

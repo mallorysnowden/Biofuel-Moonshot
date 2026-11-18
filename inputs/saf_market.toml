@@ -102,11 +102,11 @@ unit = "$/yr once selling"
 source = "Assumption"
 
 [company.ga_share]
-base = 0.02
-low = 0.01
-high = 0.04
+base = 0.03
+low = 0.02
+high = 0.05
 unit = "fraction of revenue"
-source = "Assumption"
+source = "Assumption: same 3% G&A share used in the prefab and thermosyphon TEAs"
 
 [learning.first_year_experience]
 base = 1

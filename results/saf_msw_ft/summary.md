@@ -12,15 +12,15 @@
 
 | Metric | Value |
 |---|---|
-| NPV | -$612.2M |
-| IRR | 5% |
-| Probability NPV > 0 (Monte Carlo) | 11% |
-| Peak cash need | $2.29B |
+| NPV | -$786.9M |
+| IRR | 4% |
+| Probability NPV > 0 (Monte Carlo) | 7% |
+| Peak cash need | $2.79B |
 | Cash breakeven year | not within horizon |
-| Revenue in final year | $883.2M |
+| Revenue in final year | $715.0M |
 | NOAK reached in year | 12 |
 | Extra cost paid while learning (FOAK to NOAK) | $410.3M |
-| NPV if costs started at NOAK (no learning period) | -$363.5M |
+| NPV if costs started at NOAK (no learning period) | -$549.6M |
 
 ## Customer cost vs BAU
 
@@ -28,12 +28,12 @@
 
 | Option | Value | vs ours |
 |---|---|---|
-| Ours at NOAK (MSP) | $1,552 | 1.00x |
-| Ours, first plant (FOAK MSP) | $2,126 | 1.37x |
-| HEFA SAF market price (incumbent SAF) | $2,214 | 1.43x |
-| Projected SAF price in 2035 (this model) | $1,718 | 1.11x |
-| Fossil jet | $735 | 0.47x |
-| Fossil jet + ReFuelEU penalty | $3,693 | 2.38x |
+| Ours at NOAK (MSP) | $1,756 | 1.00x |
+| Ours, first plant (FOAK MSP) | $2,426 | 1.38x |
+| HEFA SAF market price (incumbent SAF) | $2,214 | 1.26x |
+| Projected SAF price in 2035 (this model) | $1,718 | 0.98x |
+| Fossil jet | $735 | 0.42x |
+| Fossil jet + ReFuelEU penalty | $3,693 | 2.10x |
 
 MSP credits co-products and other revenue. The penalty is at least twice the SAF-jet price gap per tonne missed.
 
@@ -41,8 +41,8 @@ MSP credits co-products and other revenue. The penalty is at least twice the SAF
 
 | Option | Value | vs ours |
 |---|---|---|
-| Ours at NOAK | $251 | 1.00x |
-| HEFA SAF at market price | $455 | 1.81x |
+| Ours at NOAK | $314 | 1.00x |
+| HEFA SAF at market price | $455 | 1.45x |
 
 Price premium over fossil jet divided by life-cycle CO2e avoided per tonne.
 
@@ -72,48 +72,48 @@ Cost multiplier vs the incumbent's cost for each component (1.00 = incumbent).
 |---|---|---|---|---|---|---|---|---|
 | 1 | R&D | $0 | $0 | $20.0M | -$20.0M | $0 | -$20.0M | 1.47 |
 | 2 | R&D | $0 | $0 | $20.0M | -$20.0M | $0 | -$40.0M | 1.47 |
-| 3 | commercial | $47.6M | $10.1M | $11.0M | -$821,125 | $476.6M | -$517.4M | 1.47 |
-| 4 | commercial | $94.0M | $39.9M | $11.9M | $28.0M | $0 | -$489.4M | 1.47 |
-| 5 | commercial | $139.4M | $47.8M | $12.8M | $35.0M | $419.4M | -$873.8M | 1.29 |
-| 6 | commercial | $183.8M | $75.5M | $13.7M | $61.8M | $0 | -$812.0M | 1.29 |
-| 7 | commercial | $227.2M | $81.5M | $14.5M | $66.9M | $389.2M | -$1.13B | 1.20 |
-| 8 | commercial | $314.7M | $114.8M | $16.3M | $98.5M | $369.1M | -$1.40B | 1.14 |
-| 9 | commercial | $400.4M | $146.4M | $18.0M | $128.4M | $354.2M | -$1.63B | 1.09 |
-| 10 | commercial | $484.5M | $176.3M | $19.7M | $156.6M | $342.5M | -$1.82B | 1.05 |
-| 11 | commercial | $567.0M | $204.6M | $21.3M | $183.3M | $332.9M | -$1.97B | 1.02 |
-| 12 | commercial | $648.0M | $231.5M | $23.0M | $208.6M | $324.8M | -$2.08B | 1.00 |
-| 13 | commercial | $727.7M | $257.1M | $24.6M | $232.5M | $324.8M | -$2.17B | 1.00 |
-| 14 | commercial | $806.0M | $281.3M | $26.1M | $255.2M | $324.8M | -$2.24B | 1.00 |
-| 15 | commercial | $883.2M | $304.3M | $27.7M | $276.7M | $324.8M | -$2.29B | 1.00 |
+| 3 | commercial | $0 | $0 | $10.0M | -$10.0M | $238.3M | -$288.3M | 1.47 |
+| 4 | commercial | $0 | $0 | $10.0M | -$10.0M | $238.3M | -$536.6M | 1.47 |
+| 5 | commercial | $46.5M | $9.0M | $11.4M | -$2.4M | $209.7M | -$748.7M | 1.29 |
+| 6 | commercial | $91.9M | $37.8M | $12.8M | $25.0M | $209.7M | -$933.4M | 1.29 |
+| 7 | commercial | $136.3M | $44.7M | $14.1M | $30.6M | $194.6M | -$1.10B | 1.20 |
+| 8 | commercial | $179.8M | $71.5M | $15.4M | $56.1M | $379.1M | -$1.42B | 1.14 |
+| 9 | commercial | $222.4M | $76.7M | $16.7M | $60.0M | $361.7M | -$1.72B | 1.09 |
+| 10 | commercial | $308.3M | $108.4M | $19.2M | $89.2M | $348.4M | -$1.98B | 1.05 |
+| 11 | commercial | $392.5M | $138.5M | $21.8M | $116.7M | $337.7M | -$2.20B | 1.02 |
+| 12 | commercial | $475.2M | $167.0M | $24.3M | $142.8M | $328.8M | -$2.39B | 1.00 |
+| 13 | commercial | $556.4M | $194.1M | $26.7M | $167.4M | $324.8M | -$2.55B | 1.00 |
+| 14 | commercial | $636.3M | $219.9M | $29.1M | $190.8M | $324.8M | -$2.68B | 1.00 |
+| 15 | commercial | $715.0M | $244.4M | $31.4M | $212.9M | $324.8M | -$2.79B | 1.00 |
 
 Revenue in the final year by stream:
 
-- saf: $397.0M (45%)
-- coproducts: $109.6M (12%)
-- gate_fees: $312.4M (35%)
-- recyclables: $64.3M (7%)
+- saf: $321.4M (45%)
+- coproducts: $88.7M (12%)
+- gate_fees: $252.9M (35%)
+- recyclables: $52.0M (7%)
 
 ## Break-evens
 
 | Question | Answer | Base input |
 |---|---|---|
-| Annual decline in SAF premium for NPV = 0 | 0.00158 | 0.04 |
-| Long-run SAF premium floor ($/t) for NPV = 0 | 1,438 | 700 |
+| Annual decline in SAF premium for NPV = 0 | -0.00906 | 0.04 |
+| Long-run SAF premium floor ($/t) for NPV = 0 | no crossing in range | 700 |
 | Gasifier availability for NPV = 0 | no crossing in range | 0.85 |
-| NOAK capex per t/yr dry gasifier feed for NPV = 0 | 1,085 | 1,400 |
-| Gate fee for NPV = 0 | 103 | 70 |
+| NOAK capex per t/yr dry gasifier feed for NPV = 0 | 946 | 1,400 |
+| Gate fee for NPV = 0 | 123 | 70 |
 
 ## Scenarios
 
 | Scenario | NPV | Final-year revenue | Peak cash need |
 |---|---|---|---|
-| No sorting (Fulcrum-like feed) | -$2.38B | $767.3M | $5.92B |
-| Fossil-carbon fuel earns no SAF premium | -$783.7M | $844.2M | $2.56B |
-| Fossil-carbon fuel earns the full SAF premium | -$440.6M | $922.2M | $2.02B |
-| Low gate fee ($30/t) | -$1.35B | $704.7M | $3.35B |
-| UK-level gate fee ($150/t) | $863.1M | $1.24B | $1.12B |
-| SAF premium holds at today's level | $39.8M | $1.05B | $1.69B |
-| SAF premium falls 8%/yr | -$713.0M | $866.7M | $2.54B |
+| No sorting (Fulcrum-like feed) | -$2.38B | $621.1M | $6.07B |
+| Fossil-carbon fuel earns no SAF premium | -$919.4M | $683.4M | $2.97B |
+| Fossil-carbon fuel earns the full SAF premium | -$654.5M | $746.6M | $2.61B |
+| Low gate fee ($30/t) | -$1.38B | $570.5M | $3.51B |
+| UK-level gate fee ($150/t) | $408.2M | $1.00B | $1.70B |
+| SAF premium holds at today's level | -$228.1M | $852.2M | $2.23B |
+| SAF premium falls 8%/yr | -$847.1M | $701.6M | $2.95B |
 
 ## Sensitivity (one input at a time)
 
@@ -121,29 +121,29 @@ Revenue in the final year by stream:
 
 | Input | Low | NPV at low | High | NPV at high |
 |---|---|---|---|---|
-| `ft.capex_per_dry_t` | 900 | $358.8M | 2,200 | -$2.17B |
-| `waste.gate_fee` | 30 | -$1.35B | 150 | $863.1M |
-| `ft.fuel_yield` | 0.15 | -$1.15B | 0.25 | -$76.7M |
-| `sort.cost` | 15 | -$329.9M | 60 | -$1.18B |
-| `ft.availability` | 0.6 | -$1.27B | 0.92 | -$429.2M |
-| `market.premium_decline` | 0.0 | $39.8M | 0.1 | -$722.2M |
-| `market.jet_price` | 600 | -$857.0M | 950 | -$222.2M |
-| `ft.var_opex` | 50 | -$437.5M | 110 | -$961.4M |
-| `sort.recyclables_value` | 40 | -$789.2M | 250 | -$324.5M |
-| `sort.organics_fee` | 0 | -$499.3M | 80 | -$950.9M |
-| `sort.recyclables_share` | 0.08 | -$782.6M | 0.18 | -$356.5M |
-| `learning.rate_capex` | 0.05 | -$455.1M | 0.2 | -$848.9M |
-| `learning.noak_experience` | 4 | -$471.2M | 15 | -$816.2M |
-| `market.premium_floor` | 300 | -$673.3M | 1,100 | -$329.4M |
-| `policy.rcf_credit` | 0.0 | -$783.7M | 1.0 | -$440.6M |
+| `ft.capex_per_dry_t` | 900 | $80.3M | 2,200 | -$2.17B |
+| `waste.gate_fee` | 30 | -$1.38B | 150 | $408.2M |
+| `ft.fuel_yield` | 0.15 | -$1.21B | 0.25 | -$360.8M |
+| `sort.cost` | 15 | -$555.9M | 60 | -$1.25B |
+| `ft.availability` | 0.6 | -$1.30B | 0.92 | -$642.2M |
+| `market.premium_decline` | 0.0 | -$228.1M | 0.1 | -$850.3M |
+| `market.jet_price` | 600 | -$985.3M | 950 | -$471.0M |
+| `ft.var_opex` | 50 | -$644.0M | 110 | -$1.07B |
+| `sort.recyclables_share` | 0.08 | -$943.0M | 0.18 | -$552.7M |
+| `sort.recyclables_value` | 40 | -$930.3M | 250 | -$553.9M |
+| `learning.rate_capex` | 0.05 | -$637.0M | 0.2 | -$1.01B |
+| `sort.organics_fee` | 0 | -$694.5M | 80 | -$1.06B |
+| `sort.organics_share` | 0.2 | -$967.1M | 0.4 | -$606.7M |
+| `learning.noak_experience` | 4 | -$652.3M | 15 | -$979.6M |
+| `market.premium_floor` | 300 | -$850.4M | 1,100 | -$530.2M |
 
 ## Monte Carlo
 
-1,000 draws, triangular distribution on every input with a range.
+2,000 draws, triangular distribution on every input with a range.
 
 | P10 | P50 | P90 | P(NPV > 0) |
 |---|---|---|---|
-| -$1.83B | -$900.0M | $42.4M | 11% |
+| -$1.87B | -$1.03B | -$150.1M | 7% |
 
 ![Monte Carlo](monte_carlo.png)
 
@@ -151,12 +151,12 @@ Revenue in the final year by stream:
 
 | Metric | Value | Threshold | Passes |
 |---|---|---|---|
-| NOAK MSP vs HEFA SAF price | 0.70 x (<=1 to win) | 1.00 | yes |
-| NOAK MSP vs projected 2035 SAF price | 0.90 x (<=1 to win) | 1.00 | yes |
-| Cost of CO2e avoided at NOAK | 251.40 $/t (<=300) | 300.00 | yes |
+| NOAK MSP vs HEFA SAF price | 0.79 x (<=1 to win) | 1.00 | yes |
+| NOAK MSP vs projected 2035 SAF price | 1.02 x (<=1 to win) | 1.00 | no |
+| Cost of CO2e avoided at NOAK | 314.39 $/t (<=300) | 300.00 | no |
 | Gasifier availability with sorted feed | 0.85 fraction (>=0.80) | 0.80 | yes |
-| Revenue at full scale vs big-enough line | 0.88 x | 1.00 | no |
-| Probability NPV > 0 | 11% | 50% | no |
+| Revenue at full scale vs big-enough line | 0.71 x | 1.00 | no |
+| Probability NPV > 0 | 7% | 50% | no |
 
 ## Scorecard
 
@@ -180,6 +180,6 @@ Economics is scored from P(NPV > 0); the rest are judgment scores set in the inp
 - Market check: 11 plants at maturity make 304 kt/yr of SAF-range fuel, 3.3% of the ~9.2 Mt/yr the EU mandate requires in 2035.
 - One mature plant: 27.6 kt/yr SAF-range fuel (35% from fossil carbon), 11.8 kt/yr co-products.
 - SAF price path: premium over jet $1,362/t in model year 1 (2027), $983/t in 2035, $769/t in year 15.
-- NPV and IRR include the remaining-life operating cash of plants built within the 15-yr horizon (no new builds after it). NPV over the horizon alone: $-1,183M.
+- NPV and IRR include the remaining-life operating cash of plants built within the 15-yr horizon (no new builds after it) while it stays positive; 26 tail years counted. NPV over the horizon alone: $-1,334M.
 - Pre-tax, real 2026 USD; operating profit is before depreciation.
 
